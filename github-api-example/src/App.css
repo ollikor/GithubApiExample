@@ -1,0 +1,38 @@
+.App {
+  /* text-align: center; */
+  background-color: #3f4450;
+  height: 100vh;
+}
+
+.App-header {
+  background-color: #282c34;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* font-size: calc(10px + 2vmin); */
+  color: white;
+}
+
+.Header-title {
+  font-size: 20px;
+  margin-left: 10%;
+}
+
+.Header-logo {
+  float: right;
+  margin-right: 10%;
+  font-size: 30px;
+}
+
+.Search {
+  margin-left: 10%;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
