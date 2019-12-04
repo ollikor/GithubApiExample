@@ -16,9 +16,8 @@ class Search extends Component {
         e.preventDefault()
         const username = this.state.inputText;
         const repositories = await FetchRepositories(username);
-        console.log(repositories);
-        this.props.repositories('repositories');
-        this.setState({ inputText: '' });
+        this.props.repositories(repositories);
+        // this.setState({ inputText: '' });
     }
 
     render() {
@@ -26,9 +25,10 @@ class Search extends Component {
             <div className="Search">
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        Search repositories with username{this.state.inputText}
+                        Search repositories with username
                 </label>
                     <input
+                        onFocus={(e)=> e.target.select()}
                         id="new-todo"
                         placeholder="username"
                         onChange={(e) => this.setState({inputText: e.target.value})}

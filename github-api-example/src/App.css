@@ -2,6 +2,7 @@
   /* text-align: center; */
   background-color: #3f4450;
   height: 100vh;
+  color: #ffffff;
 }
 
 .App-header {
@@ -12,7 +13,6 @@
   align-items: center;
   justify-content: space-between;
   /* font-size: calc(10px + 2vmin); */
-  color: white;
 }
 
 .Header-title {
@@ -29,10 +29,33 @@
 .Search {
   margin-left: 10%;
   margin-top: 20px;
-  color: #ffffff;
 }
 
 label {
   display: block;
   margin-bottom: 5px;
+}
+
+.Repositories {
+  /* min-width: 100px; */
+  margin-left: 10%;
+  margin-right: 10%;
+  /* margin-bottom: 20px; */
+  /* text-decoration: underline; */
+  /* padding: 10px; */
+  /* box-shadow: 0 2px 5px #ffffff; */
+}
+
+ul {
+  padding: 0px;
+}
+li {
+  list-style: none;
+}
+
+.back {
+  color: #ffffff;
+  font-size: 30px;
+  margin-left: 10%;
+  margin-top: 10px;
 }
