@@ -1,18 +1,39 @@
 .App {
-  /* text-align: center; */
-  background-color: #3f4450;
+  background-color: #ffffff;
   height: 100vh;
-  color: #ffffff;
+  color: #282c34;
 }
 
 .App-header {
   background-color: #282c34;
+  color: #ffffff;
   height: 60px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  justify-content: center;
+
+}
+
+.Header-content {
+  width: 960px;
+  margin: 0;
+  display: flex;
+  /* display: inline-block;
+  vertical-align: middle; */
   justify-content: space-between;
-  /* font-size: calc(10px + 2vmin); */
+  align-items: center;
+  /* clear: both; */
+}
+
+.App-container {
+  display: flex;
+  justify-content: center;
+}
+
+.App-content {
+  width: 960px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* align-items: flex-start; */
 }
 
 .Header-title {
@@ -21,7 +42,7 @@
 }
 
 .Header-logo {
-  float: right;
+  width: 100%;
   margin-right: 10%;
   font-size: 30px;
 }
@@ -33,29 +54,62 @@
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+}
+
+.SearchInput, .SearchButton {
+  padding: 5px;
 }
 
 .Repositories {
   /* min-width: 100px; */
   margin-left: 10%;
   margin-right: 10%;
+  color: #ffffff;
   /* margin-bottom: 20px; */
   /* text-decoration: underline; */
   /* padding: 10px; */
   /* box-shadow: 0 2px 5px #ffffff; */
 }
 
+.RepositoriesLink {
+  color: #282c34;
+  text-decoration: none;
+}
+
+.RepositoryContent {
+  margin-left: 10%;
+}
+
 ul {
   padding: 0px;
+  margin: 10%;
 }
 li {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .back {
-  color: #ffffff;
+  color: #282c34;
   font-size: 30px;
-  margin-left: 10%;
-  margin-top: 10px;
+  /* margin-left: 10%; */
+  margin: 10px;
+}
+
+.CommitContainer {
+  overflow: auto;
+  width: 100%;
+  clear: both;
+  margin-bottom: 10px;
+}
+
+.commitText {
+  margin: 0 0 5px 5px;
+}
+
+.CommitItem {
+  float: left;
+  margin: 0 0 0 5px;
 }

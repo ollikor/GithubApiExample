@@ -15,7 +15,7 @@ function Repositories(props) {
         <ul>
             {
                 repositories.map(item => (
-                    <li key={item.id} className="Repositories"><Link to={`/repository/${item.name}`}>{item.name}</Link></li>
+                    <li key={item.id} className="Repositories"><Link className="RepositoriesLink" to={`/${item.owner.login}/${item.name}`}>{item.name}</Link></li>
                 ))
             }
         </ul>

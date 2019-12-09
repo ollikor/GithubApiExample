@@ -27,17 +27,21 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Router>
-          <Switch>
-            <Route path="/" exact>
-              <Search repositories={(e) => this.handleRepositories(e)} />
-              <Repositories repositories={this.state.repositories} />
-            </Route>
-            <Route path="/repository/:name">
-              <Repository />
-            </Route>
-          </Switch>
-        </Router>
+        <div className="App-container">
+        <div className="App-content">
+          <Router>
+            <Switch>
+              <Route path="/" exact>
+                <Search repositories={(e) => this.handleRepositories(e)} />
+                <Repositories repositories={this.state.repositories} />
+              </Route>
+              <Route path="/:owner/:repository">
+                <Repository />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+        </div>
       </div>
     );
   }

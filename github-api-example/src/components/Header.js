@@ -6,8 +6,10 @@ import '../App.css';
 function Header() {
     return (
         <header className="App-header">
-            <p className="Header-title">Github API Example</p>
-            <FontAwesomeIcon className="Header-logo" icon={['fab', 'github']} />
+            <div className="Header-content">
+                <p className="Header-title">Github API Example</p>
+                <FontAwesomeIcon className="Header-logo" icon={['fab', 'github']} />
+            </div>
         </header>
     )
 }
