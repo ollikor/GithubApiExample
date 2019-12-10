@@ -7,6 +7,15 @@ import {
   } from "react-router-dom";
 
 function Repositories(props) {
+
+    function Style(index) {
+        if(index % 2 == 0) {
+            return { backgroundColor: "#737373", color: "#ffffff" }
+        }else {
+            return { backgroundColor: "#ffffff", color: "#737373" }
+        }
+    }
+
     let repositories = [];
     if (props.repositories) {
         repositories = props.repositories
@@ -14,8 +23,8 @@ function Repositories(props) {
     return (
         <ul>
             {
-                repositories.map(item => (
-                    <li key={item.id} className="Repositories"><Link className="RepositoriesLink" to={`/${item.owner.login}/${item.name}`}>{item.name}</Link></li>
+                repositories.map((item, index) => (
+                    <li key={index} style={Style(index)} className="Repositories"><Link style={Style(index)} className="RepositoriesLink" to={`/${item.owner.login}/${item.name}`}>{item.name}</Link></li>
                 ))
             }
         </ul>

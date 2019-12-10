@@ -14,7 +14,8 @@ import { FetchCommits } from '../api';
 class Repository extends Component {
 
     state = {
-        commits: []
+        commits: [],
+        repository: this.props.match.params.repository
     }
 
     async componentDidMount() {
@@ -30,6 +31,7 @@ class Repository extends Component {
         return (
             <div className="RepositoryContent">
                 <Link to="/"><FontAwesomeIcon className="back" icon="long-arrow-alt-left" /></Link>
+                <p className="RepositoryTitle">{this.state.repository}</p>
                 {
                     this.state.commits.map((item, index) => (
                         <div key={index} className="CommitContainer">

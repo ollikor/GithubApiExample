@@ -1,7 +1,7 @@
 .App {
   background-color: #ffffff;
-  height: 100vh;
   color: #282c34;
+  padding-bottom: 20px;
 }
 
 .App-header {
@@ -32,6 +32,7 @@
 .App-content {
   width: 960px;
   display: flex;
+  display: inline-block;
   /* flex-wrap: wrap; */
   /* align-items: flex-start; */
 }
@@ -49,7 +50,8 @@
 
 .Search {
   margin-left: 10%;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 label {
@@ -57,8 +59,32 @@ label {
   margin-bottom: 8px;
 }
 
-.SearchInput, .SearchButton {
-  padding: 5px;
+.SearchInput {
+  padding: 10px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.SearchButton {
+  padding: 10px;
+  margin-left: 5px;
+  color: #ffffff;
+  background-color: #282c34;
+  border-style: hidden;
+  border-radius: 5px;
+}
+
+.SearchButton:hover {
+  /* padding: 12px; */
+  box-shadow: 0 0 5px #ffa500;
 }
 
 .Repositories {
@@ -73,8 +99,12 @@ label {
 }
 
 .RepositoriesLink {
-  color: #282c34;
+  /* color: #737373; */
   text-decoration: none;
+}
+
+.RepositoryTitle {
+  font-size: 18px;
 }
 
 .RepositoryContent {
@@ -83,19 +113,18 @@ label {
 
 ul {
   padding: 0px;
-  margin: 10%;
+  /* margin: 10%; */
 }
 li {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 5px;
 }
 
 .back {
   color: #282c34;
   font-size: 30px;
-  /* margin-left: 10%; */
-  margin: 10px;
+  margin: 10px 0;
 }
 
 .CommitContainer {
