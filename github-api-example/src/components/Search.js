@@ -1,5 +1,4 @@
-import React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { FetchRepositories } from '../api';
@@ -10,35 +9,19 @@ class Search extends Component {
 
     state = {
         inputText: '',
-        repositories: []
+        error: ''
     }
 
     handleSubmit = async (e) => {
         e.preventDefault()
-        const username = this.state.inputText;
-        // const repositories = await FetchRepositories(username);
-    fetch(`https://api.github.com/users/${username}/repos`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-            this.props.repositories(result);
-            console.log(result)
-          this.setState({
-            // isLoaded: true,
-            repositories: result
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
+        if (this.state.inputText === '') {
+            this.setState({ error: 'Set a username' });
+        } else {
+            const username = this.state.inputText;
+            const repositories = await FetchRepositories(username);
+            this.props.repositories(repositories);
+            this.setState({ error: '' });
         }
-      )
-        // this.setState({ inputText: '' });
     }
 
     render() {
@@ -47,18 +30,18 @@ class Search extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Search repositories with username
-                </label>
+					</label>
                     <input
                         className="SearchInput"
-                        onFocus={(e)=> e.target.select()}
-                        id="new-todo"
+                        onFocus={(e) => e.target.select()}
                         placeholder="username"
-                        onChange={(e) => this.setState({inputText: e.target.value})}
+                        onChange={(e) => this.setState({ inputText: e.target.value })}
                         value={this.state.inputText}
                     />
                     <button className="SearchButton">
                         <FontAwesomeIcon icon="search" />
                     </button>
+                    <p className="Error">{this.state.error}</p>
                 </form>
             </div>
         )

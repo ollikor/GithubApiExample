@@ -33,14 +33,20 @@ class Repository extends Component {
                 <Link to="/"><FontAwesomeIcon className="back" icon="long-arrow-alt-left" /></Link>
                 <p className="RepositoryTitle">{this.state.repository}</p>
                 {
-                    this.state.commits.map((item, index) => (
+                    this.state.commits.map((item, index) => {
+                        const date = new Date(item.commit.author.date);
+                        return (
                         <div key={index} className="CommitContainer">
                             <p className="commitText">{item.commit.message}</p>
-                            <img className="CommitItem" width="30" height="30" src="https://avatars3.githubusercontent.com/u/31824760?v=4" alt="avatar" />
+                            {
+                                item.author !== null ?
+                                    <img className="CommitAvatar" src={item.author.avatar_url} alt="avatar" />
+                                    : null
+                            }
                             <p className="CommitItem">{item.commit.author.name}</p>
-                            <p className="CommitItem">{item.commit.author.date}</p>
+                            <p className="CommitItem"> Committed on {date.toLocaleDateString()}</p>
                         </div>
-                    ))}
+                    )})}
             </div>
         )
     }
