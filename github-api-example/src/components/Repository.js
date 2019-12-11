@@ -31,7 +31,7 @@ class Repository extends Component {
         return (
             <div className="RepositoryContent">
                 <Link to="/"><FontAwesomeIcon className="back" icon="long-arrow-alt-left" /></Link>
-                <p className="RepositoryTitle">{this.state.repository}</p>
+                <p className="RepositoryTitle">Repository: {this.state.repository}</p>
                 {
                     this.state.commits.map((item, index) => {
                         const date = new Date(item.commit.author.date);

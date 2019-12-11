@@ -19,7 +19,7 @@ export async function FetchRepositories(username) {
 
 export async function FetchCommits(owner, repository) {
     try {
-        const response = await fetch(`https://api.github.com/repos/${owner}/${repository}/commits`);
+        const response = await fetch(`https://api.github.com/repos/${owner}/${repository}/commits?per_page=10`);
         if (response.status === 200) {
             const commits = await response.json();
             return commits
