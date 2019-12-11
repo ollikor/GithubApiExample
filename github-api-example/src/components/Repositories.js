@@ -7,7 +7,7 @@ import {
 function Repositories(props) {
     
     // Function to set style depends, that is it the row index even or not
-    function Style(index) {
+    function style(index) {
         if (index % 2 === 0) {
             return { backgroundColor: "#737373", color: "#ffffff" }
         } else {
@@ -22,7 +22,7 @@ function Repositories(props) {
                 props.repositories === "No repositories" || props.repositories === "Search failed" ?
                     <li className="Repositories">{props.repositories}</li> :
                     props.repositories.map((item, index) => (
-                        <li key={index} style={Style(index)} className="Repositories"><Link style={Style(index)} className="Repositories-link" to={`/${item.owner.login}/${item.name}`}>{item.name}</Link></li>
+                        <li key={index} style={style(index)} className="Repositories"><Link style={style(index)} className="Repositories-link" to={`/${item.owner.login}/${item.name}`}>{item.name}</Link></li>
                     ))
             }
         </ul>
