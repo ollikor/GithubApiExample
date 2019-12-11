@@ -1,33 +1,36 @@
+// Function to fetch all repositories from selected user
 export async function FetchRepositories(username) {
     try {
         const response = await fetch(`https://api.github.com/users/${username}/repos`);
-        if (response.status === 200) {
-            const repositories = await response.json();
-            if (repositories.length > 0) {
-                return repositories
-            } else {
-                return null
-            }
+        const repositories = await response.json();
+        if (!response.ok) {
+            throw new Error('Search failed');
+        }
+        if (repositories.length > 0) {
+            return repositories
         } else {
-            return null
+            return "No repositories"
         }
     } catch (error) {
-        console.error(error);
+        return error.message;
     }
-
 }
 
+// Function to fetch 10 commits from selected repository
 export async function FetchCommits(owner, repository) {
     try {
         const response = await fetch(`https://api.github.com/repos/${owner}/${repository}/commits?per_page=10`);
-        if (response.status === 200) {
-            const commits = await response.json();
+        const commits = await response.json();
+        if (!response.ok) {
+            throw new Error('Search failed');
+        }
+        if (commits.length > 0) {
             return commits
         } else {
-            return null
+            return "No commits"
         }
     } catch (error) {
-        console.error(error);
+        return error.message;
     }
 
 }

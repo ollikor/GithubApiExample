@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   handleRepositories(e) {
-    this.setState({ repositories: e })
+    this.setState({ repositories: e });
   }
 
   render() {

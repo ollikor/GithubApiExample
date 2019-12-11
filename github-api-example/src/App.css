@@ -1,27 +1,10 @@
+
+/* App component */
+
 .App {
+  padding-bottom: 20px;
   background-color: #ffffff;
   color: #282c34;
-  padding-bottom: 20px;
-}
-
-.App-header {
-  background-color: #282c34;
-  color: #ffffff;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-
-}
-
-.Header-content {
-  width: 960px;
-  margin: 0;
-  display: flex;
-  /* display: inline-block;
-  vertical-align: middle; */
-  justify-content: space-between;
-  align-items: center;
-  /* clear: both; */
 }
 
 .App-container {
@@ -33,20 +16,38 @@
   width: 960px;
   display: flex;
   display: inline-block;
-  /* flex-wrap: wrap; */
-  /* align-items: flex-start; */
+}
+
+/* Header component */
+
+.App-header {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  background-color: #282c34;
+  color: #ffffff;
+
+}
+
+.Header-content {
+  width: 960px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .Header-title {
-  font-size: 20px;
   margin-left: 10%;
+  font-size: 20px;
 }
 
 .Header-logo {
-  width: 100%;
   margin-right: 10%;
   font-size: 30px;
 }
+
+/* Search component */
 
 .Search {
   margin-left: 10%;
@@ -59,7 +60,7 @@ label {
   margin-bottom: 8px;
 }
 
-.SearchInput {
+.Search-input {
   padding: 10px;
   border-top-style: hidden;
   border-right-style: hidden;
@@ -73,17 +74,16 @@ input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
 
-.SearchButton {
+.Search-button {
   padding: 10px;
   margin-left: 5px;
-  color: #ffffff;
-  background-color: #282c34;
   border-style: hidden;
   border-radius: 5px;
+  color: #ffffff;
+  background-color: #282c34;
 }
 
-.SearchButton:hover {
-  /* padding: 12px; */
+.Search-button:hover {
   box-shadow: 0 0 5px #ffa500;
 }
 
@@ -91,28 +91,26 @@ input:-webkit-autofill:active {
   color: #ff0000;
 }
 
+/* Repositories component */
+
 .Repositories {
-  /* min-width: 100px; */
   margin-left: 10%;
   margin-right: 10%;
-  /* margin-bottom: 20px; */
-  /* text-decoration: underline; */
-  /* padding: 10px; */
-  /* box-shadow: 0 2px 5px #ffffff; */
 }
 
-.RepositoriesLink {
-  /* color: #737373; */
+.Repositories-link {
   text-decoration: none;
 }
 
-.RepositoryTitle {
+/* Repository component */
+
+.Repository-title {
   margin-top: 0;
   font-size: 20px;
   font-weight: bold;
 }
 
-.RepositoryContent {
+.Repository-content {
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -132,26 +130,25 @@ li {
   margin: 10px 0;
 }
 
-.CommitContainer {
+.Commit-container {
   overflow: auto;
-  /* width: 100%; */
   clear: both;
   margin-bottom: 20px;
   box-shadow: 0 1px 2px #000000;
   padding: 10px;
 }
 
-.commitText {
+.commit-text {
   margin: 0 0 5px 5px;
   font-weight: bold;
 }
 
-.CommitItem {
+.Commit-item {
   float: left;
   margin: 0 0 0 5px;
 }
 
-.CommitAvatar {
+.Commit-avatar {
   width: 40px;
   height: 40px;
   float: left;

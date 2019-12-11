@@ -1,8 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import '../App.css';
-
 function Header() {
     return (
         <header className="App-header">
