@@ -18,7 +18,7 @@ class App extends Component {
     repositories: []
   }
 
-  handleRepositories(e) {
+  handleRepositories = (e) => {
     this.setState({ repositories: e });
   }
 
