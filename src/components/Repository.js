@@ -31,7 +31,7 @@ class Repository extends Component {
                 {this.state.loading ? <p>Loading...</p> : null}
                 {
                     // Show error if commits fetch have failed
-                    this.state.commits === "Not commits" || this.state.commits === "Search failed" ?
+                    this.state.commits === "No commits" || this.state.commits === "Search failed" ?
                         <li className="Repositories">{this.state.commits}</li> :
                         this.state.commits.map((item, index) => {
                             const date = new Date(item.commit.author.date);
