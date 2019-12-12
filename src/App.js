@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter,
   Switch,
   Route
 } from "react-router-dom";
@@ -28,7 +28,7 @@ class App extends Component {
         <Header />
         <div className="App-container">
           <div className="App-content">
-            <Router>
+            <HashRouter basename="/">
               <Switch>
                 <Route path="/" exact>
                   <Search repositories={(e) => this.handleRepositories(e)} />
@@ -38,7 +38,7 @@ class App extends Component {
                   <Repository />
                 </Route>
               </Switch>
-            </Router>
+            </HashRouter>
           </div>
         </div>
       </div>
