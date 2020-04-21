@@ -17,13 +17,24 @@ class Search extends Component {
         e.preventDefault()
         if (this.state.inputText === '') {
             this.setState({ error: 'Set a username' });
+            this.props.repositories([]);
         } else {
             this.setState({ loading: true });
             const username = this.state.inputText;
             const repositories = await FetchRepositories(username);
             // send props to app.js
-            this.props.repositories(repositories);
-            this.setState({ error: '', loading: false });
+            if(repositories.length === 0){
+                this.setState({ error: "No repositories", loading: false });
+                this.props.repositories([]);
+            }
+            else if(typeof(repositories) === "string") {
+                this.setState({ error: repositories, loading: false });
+                this.props.repositories([]);
+            }
+             else {
+                this.props.repositories(repositories);
+                this.setState({ error: '', loading: false });
+            }
         }
     }
 
@@ -44,7 +55,7 @@ class Search extends Component {
                     <button className="Search-button">
                         <FontAwesomeIcon icon="search" />
                     </button>
-                    <p className="Error">{this.state.error}</p>
+                    {this.state.error ? <p className="Error">{this.state.error}</p>: null}
                     {this.state.loading ? <p>Loading...</p> : null}
                 </form>
             </div>
