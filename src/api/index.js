@@ -19,10 +19,14 @@ function handleErrors(response) {
 // }
 
 function FetchData(url) {
-  return fetch(url)
-  .then(handleErrors)
+  if (window.navigator.onLine === false) {
+    return texts["no-internet"];
+  } else {
+    return fetch(url)
+      .then(handleErrors)
       .then((response) => response.json())
       .catch((error) => error.message);
+  }
 }
 
 export function FetchRepositories(options) {
@@ -34,7 +38,6 @@ export function FetchCommits(options) {
   const url = `https://api.github.com/repos/${options.owner}/${options.repository}/commits?per_page=10`;
   return FetchData(url);
 }
-
 
 // export function FetchData(options) {
 //   let url;
