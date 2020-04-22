@@ -1,3 +1,5 @@
+import texts from "../texts";
+
 function handleErrors(response) {
   if (!response.ok) {
     throw new Error("Search failed");
@@ -16,62 +18,69 @@ function handleErrors(response) {
 //     return fetchError('url2', {method: 'POST'})
 // }
 
-export function FetchRepositories(username) {
-  if (window.navigator.onLine === false) {
-    return "No internet connection";
-  } else {
-    return fetch(`https://api.github.com/users/${username}/repos`)
-      .then(handleErrors)
+function FetchData(url) {
+  return fetch(url)
+  .then(handleErrors)
       .then((response) => response.json())
       .catch((error) => error.message);
-  }
 }
 
-export function FetchCommits(owner, repository) {
-    if (window.navigator.onLine === false) {
-      return "No internet connection";
-    } else {
-      return fetch(`https://api.github.com/repos/${owner}/${repository}/commits?per_page=10`)
-        .then(handleErrors)
-        .then((response) => response.json())
-        .catch((error) => error.message);
-    }
-  }
+export function FetchRepositories(options) {
+  const url = `https://api.github.com/users/${options.username}/repos`;
+  return FetchData(url);
+}
 
-// Function to fetch all repositories from selected user
-// export async function FetchRepositories(username) {
-//     try {
-//         const response = await fetch(`https://api.github.com/users/${username}/repos`);
-//         const repositories = await response.json();
-//         if (!response.ok) {
-//             throw new Error('Search failed');
-//         }
-//         if (repositories.length > 0) {
-//             return repositories
-//         } else {
-//             return "No repositories"
-//         }
-//     } catch (error) {
-//         return error.message;
+export function FetchCommits(options) {
+  const url = `https://api.github.com/repos/${options.owner}/${options.repository}/commits?per_page=10`;
+  return FetchData(url);
+}
+
+
+// export function FetchData(options) {
+//   let url;
+//   if (window.navigator.onLine === false) {
+//     return texts["no-internet"];
+//   } else {
+//     switch (options.index) {
+//       case 1:
+//         url = `https://api.github.com/users/${options.username}/repos`;
+//         FetchData(url)
+//         break;
+
+//       case 2:
+//         url = `https://api.github.com/repos/${options.owner}/${options.repository}/commits?per_page=10`;
+//         FetchData(url)
+//         break;
+//       default:
+//         break;
 //     }
+//     // return fetch(url)
+//     //   .then(handleErrors)
+//     //   .then((response) => response.json())
+//     //   .catch((error) => error.message);
+//   }
 // }
 
-// Function to fetch 10 commits from selected repository
-// export async function FetchCommits(owner, repository) {
-//   try {
-//     const response = await fetch(
+// export function FetchRepositories(username) {
+//   if (window.navigator.onLine === false) {
+//     return "No internet connection";
+//   } else {
+//     return fetch(`https://api.github.com/users/${username}/repos`)
+//       .then(handleErrors)
+//       .then((response) => response.json())
+//       .catch((error) => error.message);
+//   }
+// }
+
+// export function FetchCommits(owner, repository) {
+//   if (window.navigator.onLine === false) {
+//     return "No internet connection";
+//   } else {
+//     return fetch(
 //       `https://api.github.com/repos/${owner}/${repository}/commits?per_page=10`
-//     );
-//     const commits = await response.json();
-//     if (!response.ok) {
-//       throw new Error("Search failed");
-//     }
-//     if (commits.length > 0) {
-//       return commits;
-//     } else {
-//       return "No commits";
-//     }
-//   } catch (error) {
-//     return error.message;
+//     )
+//       .then(handleErrors)
+//       .then((response) => response.json())
+//       .catch((error) => error.message);
 //   }
 // }

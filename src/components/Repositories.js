@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-let repositories = [];
+
 // Component shows all repositories
 function Repositories(props) {
   // Function to set style depends, that is it the row index even or not
@@ -14,19 +14,17 @@ function Repositories(props) {
 
   return (
     <ul>
-      {
-          props.repositories.map((item, index) => (
-            <li key={index} style={style(index)} className="Repositories">
-              <Link
-                style={style(index)}
-                className="Repositories-link"
-                to={`/${item.owner.login}/${item.name}`}
-              >
-                {item.name}
-              </Link>
-            </li>
-        ))
-      }
+      {props.repositories.map((item, index) => (
+        <li key={index} style={style(index)} className="Repositories">
+          <Link
+            style={style(index)}
+            className="Repositories-link"
+            to={`/${item.owner.login}/${item.name}`}
+          >
+            {item.name}
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 }
