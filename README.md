@@ -81,8 +81,14 @@ There is one search input for chearching repositories. If you try to search empt
 
 ![alt text](https://github.com/ollikor/GithubApiExample/blob/master/images/main.PNG "main")
 
+
+
 ![alt text](https://github.com/ollikor/GithubApiExample/blob/master/images/search.PNG "search")
 
+
+
 ![alt text](https://github.com/ollikor/GithubApiExample/blob/master/images/commits.PNG "commits")
+
+
 
 ![alt text](https://github.com/ollikor/GithubApiExample/blob/master/images/notfound.PNG "notfound")
