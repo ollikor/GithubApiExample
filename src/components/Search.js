@@ -15,30 +15,28 @@ class Search extends Component {
     loading: false,
   };
 
-  // Function to handle search input
+  // Function to handle search input and fetch repositories
   handleSubmit = async (e) => {
-    this.setState({ error: false });
+    this.setState({ error: "" });
+    this.props.repositories([]);
     e.preventDefault();
     if (this.state.inputText === "") {
       this.setState({ error: texts["user-error"] });
-      this.props.repositories([]);
+      
     } else {
       this.setState({ loading: true });
       const username = this.state.inputText;
       let options = {
         username,
       };
-      // const repositories = await FetchRepositories(options={index: 1, username});
-      const repositories = await FetchRepositories(options);
-      if (repositories.length === 0) {
-        this.setState({ error: texts["repository-error"], loading: false });
-        this.props.repositories([]);
-      } else if (typeof repositories === "string") {
-        this.setState({ error: repositories, loading: false });
-        this.props.repositories([]);
-      } else {
+      // If is repositories function send those to app component via props
+      try {
+        const repositories = await FetchRepositories(options);
+        const error = repositories.length ? "" : texts["repository-error"];
+        this.setState({ error: error, loading: false });
         this.props.repositories(repositories);
-        this.setState({ error: false, loading: false });
+      } catch (error) {
+        this.setState({ error: error.message, loading: false });
       }
     }
   };

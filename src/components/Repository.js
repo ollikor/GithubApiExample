@@ -14,23 +14,28 @@ class Repository extends Component {
     commits: [],
     repository: "",
     loading: true,
-    error: false,
+    error: "",
   };
 
+  // Fetch commits when component is loaded
   async componentDidMount() {
-    this.setState({ error: false });
+    this.setState({ error: "" });
     const owner = this.props.match.params.owner;
     const repository = this.props.match.params.repository;
-    // const username = this.state.inputText;
     let options = {
       owner,
-      repository
+      repository,
+    };
+    try {
+      const commits = await FetchCommits(options);
+      this.setState({
+        commits: commits,
+        repository: repository,
+        loading: false,
+      });
+    } catch (error) {
+      this.setState({ error: error.message, loading: false });
     }
-    const commits = await FetchCommits(options);
-    if (typeof commits === "string") {
-      this.setState({ error: commits });
-    }
-    this.setState({ commits: commits, repository: repository, loading: false });
   }
 
   render() {
