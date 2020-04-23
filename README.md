@@ -6,9 +6,13 @@ GithubApiExample is small react application for search github users repositories
 
 ## Installation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Clone repository
+git clone https://github.com/ollikor/GithubApiExample.git
 
-## Available Scripts
+### Install node modules 
+npm install
+
+### Available Scripts
 
 In the project directory, you can run:
 
