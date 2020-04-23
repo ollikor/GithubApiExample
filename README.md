@@ -1,3 +1,11 @@
+# Project name
+GithubApiExample
+
+# Description
+GithubApiExample is small react application for search github users repositories and commits.
+
+# Installation
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +74,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+# Usage
+
+There is one search input for chearching repositories. If you try to search empty, user not found or repositories not found it will show error for you. If search succeed,repositories will show on the list. When repository is selected, application fetch automatically 10 last commits and show on the page.
+
+
