@@ -1,3 +1,5 @@
+![alt text](https://github.com/ollikor/GithubApiExample/blob/master/images/main.PNG "main")
+
 ## Project name
 GithubApiExample
 
