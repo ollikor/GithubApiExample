@@ -83,7 +83,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ## Usage
 
-There is one search input for chearching repositories. If you try to search empty, user not found or repositories not found it will show error for you. If search succeed, repositories will show on the list. When repository is selected, application fetch automatically 10 last commits and show on the page.
+There is one search input for searching repositories. If you try to search empty, user not found or repositories not found it will show error for you. If search succeed, repositories will show on the list. When repository is selected, application fetch automatically 10 last commits and show on the page.
 
 ![alt text](https://github.com/ollikor/GithubApiExample/blob/master/images/main.PNG "main")
 
